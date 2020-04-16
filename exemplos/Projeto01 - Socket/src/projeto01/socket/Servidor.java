@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import javax.swing.JOptionPane;
 
 public class Servidor {
     
@@ -20,13 +21,14 @@ public class Servidor {
     //Criar porta de recepção
             server = new ServerSocket(50000);
             socket = server.accept();
+            System.out.println("Aguardando requisições...");
     
     //Criar os fluxos de entrada e saída
             entrada = new DataInputStream(socket.getInputStream());
             saida = new DataOutputStream(socket.getOutputStream());
             
     //Recebimento do valor inteiro
-            int valor = entrada.readInt();
+            int valor = entrada.readInt();            
             System.out.println(valor);
     
     //Processamento do valor
@@ -39,7 +41,7 @@ public class Servidor {
     
     //Envio dos dados (resultado)
             saida.writeUTF(resultado);
-            
+            System.out.println("Desligando o servidor...");
             socket.close();
             
         } catch(Exception e) {

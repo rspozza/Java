@@ -1,5 +1,5 @@
+package projeto03.thread;
 
-package projeto01.socket;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -8,9 +8,11 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 
+
 public class Cliente {
     
     private static Socket socket;
+    
     private static DataInputStream entrada;
     private static DataOutputStream saida;
     
@@ -23,23 +25,16 @@ public class Cliente {
             entrada = new DataInputStream(socket.getInputStream());
             saida = new DataOutputStream(socket.getOutputStream());
             
-            //Recebe do usuário algum valor
-            // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            // System.out.println("Digite algum valor numérico: ");
-            // int valor = Integer.parseInt(br.readLine());
+//            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//            System.out.print("Digite uma frase: ");
+//            String frase = br.readLine();
+            String frase = JOptionPane.showInputDialog("Digite uma frase");
             
-            String dadoUsuario = JOptionPane.showInputDialog("Digite um valor");
-            int valor = Integer.parseInt(dadoUsuario);
+            saida.writeUTF(frase);
             
-            //O valor é enviado ao servidor
-            saida.writeInt(valor);
+            String novaFrase = entrada.readUTF();
             
-            //Recebe-se o resultado do servidor
-            String resultado = entrada.readUTF();
-            
-            //Mostra o resultado na tela
-            System.out.println(resultado);
-            JOptionPane.showMessageDialog(null, "Mensagem do servidor : "+resultado);
+            System.out.println("Frase recebida do servidor: "+novaFrase);
             
             socket.close();
             
