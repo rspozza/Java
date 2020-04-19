@@ -20,7 +20,7 @@ public class ClienteRMI {
             System.out.println("O número 10 é: " + stub.maiorMenorZero(10));
             
         } catch(Exception e) {
-            
+            e.printStackTrace();
         }
         
     }
