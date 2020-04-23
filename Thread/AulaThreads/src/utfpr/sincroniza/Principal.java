@@ -1,8 +1,4 @@
-
 package utfpr.sincroniza;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Principal {
 
@@ -44,7 +40,7 @@ public class Principal {
             t1.join();
             t2.join();
         } catch (InterruptedException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
         System.out.println("Contador = "+this.contador);

@@ -1,8 +1,4 @@
-
 package utfpr.threads;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 class ExecutaTarefa1 extends Thread{    
 
@@ -40,7 +36,7 @@ public class Aplicacao {
             t1.join();
             t2.join();
         } catch (InterruptedException ex) {
-            Logger.getLogger(Aplicacao.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }        
         
         System.out.println("Fim da execução!!");
