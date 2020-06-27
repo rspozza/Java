@@ -18,6 +18,7 @@ public class Servidor {
         try {
 
             //Criar porta de recepção
+            System.out.println("Solicitando a porta 50000");
             server = new ServerSocket(50000);
 
             System.out.println("Aguardando cliente...");
