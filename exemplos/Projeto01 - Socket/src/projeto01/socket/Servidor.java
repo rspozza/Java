@@ -29,7 +29,7 @@ public class Servidor {
             
     //Recebimento do valor inteiro
             int valor = entrada.readInt();            
-            System.out.println(valor);
+            System.out.println("Recebeu o valor "+valor+" do cliente.");
     
     //Processamento do valor
             String resultado = "";
