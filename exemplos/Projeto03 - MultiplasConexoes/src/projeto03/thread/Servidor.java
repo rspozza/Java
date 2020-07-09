@@ -25,7 +25,7 @@ public class Servidor extends Thread {
             String frase = entrada.readUTF();
             
             String novaFrase = frase.toUpperCase();
-            
+            System.out.println("Enviando frase para cliente...");
             DataOutputStream saida =
                     new DataOutputStream(socket.getOutputStream());
             
@@ -42,7 +42,7 @@ public class Servidor extends Thread {
     public static void main(String[] args) {
         
         try {
-        
+            System.out.println("Abrindo porta 50000...");
             ServerSocket server = new ServerSocket(50000);
             System.out.println("Aceitando conexões...");
             while(true) {

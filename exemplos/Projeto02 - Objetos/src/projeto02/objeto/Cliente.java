@@ -20,7 +20,7 @@ public class Cliente {
             
             Pessoa pessoa = new Pessoa("Henrique", 30);
             
-            System.out.println("Enviando objeto Pessoa para o servidor com os dados:\n"+pessoa.getNome()+"\n"+pessoa.getIdade());
+            System.out.println("Enviando objeto Pessoa para o servidor com os dados:\nNome:\t"+pessoa.getNome()+"\nIdade:\t"+pessoa.getIdade());
             
             saida.writeObject(pessoa);
             

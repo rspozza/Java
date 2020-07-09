@@ -19,9 +19,10 @@ public class Servidor {
         try {
         
     //Criar porta de recepção
+            System.out.println("Abrindo porta 50000...");
             server = new ServerSocket(50000);
-            socket = server.accept();
             System.out.println("Aguardando requisições...");
+            socket = server.accept();            
     
     //Criar os fluxos de entrada e saída
             entrada = new DataInputStream(socket.getInputStream());

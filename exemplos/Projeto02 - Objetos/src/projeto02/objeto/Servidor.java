@@ -15,7 +15,7 @@ public class Servidor {
     public static void main(String[] args) {
    
         try {
-            
+            System.out.println("Abrindo porta 50000...");
             server = new ServerSocket(50000);
             
             System.out.println("Aguardando requisições...");
@@ -26,11 +26,12 @@ public class Servidor {
             
             Pessoa p = (Pessoa) entrada.readObject(); 
             
-            System.out.println("Recebeu dados do cliente");
+            System.out.println("Recebeu dados do objeto Pessoa de cliente");
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++");
             
-            System.out.println("Nome: " + p.getNome() + "\nIdade: " + p.getIdade());
+            System.out.println("Nome:\t " + p.getNome() + "\nIdade:\t " + p.getIdade());
             
-            System.out.println("Encerrando servidor...");
+            System.out.println("\nEncerrando servidor...");
             
             socket.close();
             
