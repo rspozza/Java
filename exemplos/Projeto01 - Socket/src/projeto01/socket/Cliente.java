@@ -24,12 +24,12 @@ public class Cliente {
             saida = new DataOutputStream(socket.getOutputStream());
             
             //Recebe do usuário algum valor
-            // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            // System.out.println("Digite algum valor numérico: ");
-            // int valor = Integer.parseInt(br.readLine());
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+             System.out.println("Digite algum valor numérico: ");
+            int valor = Integer.parseInt(br.readLine());
             
-            String dadoUsuario = JOptionPane.showInputDialog("Digite um valor");
-            int valor = Integer.parseInt(dadoUsuario);
+            //String dadoUsuario = JOptionPane.showInputDialog("Digite um valor:");
+            //int valor = Integer.parseInt(dadoUsuario);
             
             //O valor é enviado ao servidor
             saida.writeInt(valor);
@@ -44,7 +44,7 @@ public class Cliente {
             socket.close();
             
         } catch(Exception e) {
-            
+            e.printStackTrace();
         }
         
     }
