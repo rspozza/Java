@@ -20,8 +20,10 @@ public class Servidor implements OlaRMI{
             
             OlaRMI conexao = (OlaRMI)UnicastRemoteObject.exportObject(serv, 0);           
             
-            //Registry registro = LocateRegistry.createRegistry(1099);
-            Registry registro = LocateRegistry.getRegistry("localhost", 1099);
+            System.setProperty("java.rmi.server.hostname","192.168.2.111");
+            
+            Registry registro = LocateRegistry.createRegistry(1099);
+            //Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             
             registro.bind("classeOlaMundo", conexao);
             
