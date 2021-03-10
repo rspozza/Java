@@ -8,25 +8,20 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ServidorImpl implements Validadora{
     
-    public ServidorImpl() {
-        
+    public ServidorImpl() {       
     }
 
     @Override
     public boolean validarCPF(String CPF) throws RemoteException {
-        if(CPF.length() == 11) {
-            return true;
-        }        
-        return false;
+        return CPF.length() == 11;
     }
 
     @Override
     public String maiorMenorZero(int valor) throws RemoteException {
         if(valor>0) {
-            return "Maior que zero!";
+            return "maior que zero!";
         } else
-            return "Menor que zero!";       
-    
+            return "menor ou igual a zero!";           
     }
 
     public static void main(String[] args) {
@@ -34,18 +29,16 @@ public class ServidorImpl implements Validadora{
             
             ServidorImpl s = new ServidorImpl();
             
-            Validadora stub = 
-                    (Validadora)UnicastRemoteObject.exportObject(s, 0);           
+            Validadora stub = (Validadora)UnicastRemoteObject.exportObject(s, 0);           
             
-            Registry registro = 
-                    LocateRegistry.createRegistry(1099);
+            Registry registro = LocateRegistry.createRegistry(1099);
             
             registro.bind("metodosValidadores", stub);
             
             System.out.println("Servidor RMI está pronto!");
             
         } catch(Exception e) {
-            
+            e.printStackTrace();
         }
     }
     
