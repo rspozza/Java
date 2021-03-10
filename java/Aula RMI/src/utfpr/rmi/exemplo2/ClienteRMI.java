@@ -16,11 +16,16 @@ public class ClienteRMI {
             Validadora stub = 
                     (Validadora) registro.lookup("metodosValidadores");
             
-            System.out.println("O CPF 05342888876 é: " + stub.validarCPF("05342888876"));
-            System.out.println("O número 10 é: " + stub.maiorMenorZero(10));
+            System.out.print("O CPF 05342888876 está ");
+            if (stub.validarCPF("05342888876")){
+                System.out.println("correto!");
+            }else{
+                System.out.println("incorreto!");
+            }
+            System.out.println("O número 10 é " + stub.maiorMenorZero(10));
             
         } catch(Exception e) {
-            
+            e.printStackTrace();
         }
         
     }

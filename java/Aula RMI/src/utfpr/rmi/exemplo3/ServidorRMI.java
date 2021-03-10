@@ -5,18 +5,13 @@
  */
 package utfpr.rmi.exemplo3;
 
-import java.net.MalformedURLException;
-import java.rmi.AccessException;
-import java.rmi.AlreadyBoundException;
-import java.rmi.Naming;
+
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utfpr.rmi.exemplo2.ServidorImpl;
-import utfpr.rmi.exemplo2.Validadora;
 
 /**
  *
