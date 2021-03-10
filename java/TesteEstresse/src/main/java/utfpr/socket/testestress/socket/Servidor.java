@@ -29,21 +29,12 @@ public class Servidor {
                 entrada = new DataInputStream(conexao.getInputStream());
                 saida = new DataOutputStream(conexao.getOutputStream());
 
-                //Recebimento da string
-                String cpf = entrada.readUTF();
+                // Recebimento dos dados
+                String dado = entrada.readUTF();
 
-                String resultado = "";
-
-                // valida o cpf
-                if (validaCpf(cpf)) {
-                    resultado = "TRUE";
-                } else {
-                    resultado = "FALSE";
-                }
-
-                //Envio dos dados (resultado)
-                saida.writeUTF(resultado);
-
+                //Envio dos dados (resultado)           
+                saida.writeUTF(dado.toUpperCase());
+                // fecha conexão
                 conexao.close();
             }
 
@@ -52,48 +43,4 @@ public class Servidor {
         }
 
     }
-
-    public static boolean validaCpf(String cpf) {
-        if (cpf.length() != 11) {
-            return false;
-        }
-        return calculoDigito(cpf);
-    }
-
-    private static boolean calculoDigito(String cpf) {
-        int soma, resto;
-
-        for (int dg = 0; dg < 2; dg++) {
-            soma = 0;
-            resto = 0;
-
-            for (int cont = 0; cont < cpf.length() - (2 - dg); cont++) {
-                soma += ((10 + dg) - cont) * (Character.getNumericValue(cpf.charAt(cont)));
-            }
-
-            resto = soma % 11;
-
-            if (resto < 2) {
-                // digito menor que dois é igual a zero
-                if (Character.getNumericValue(cpf.charAt(cpf.length() - (2 - dg))) == 0) {
-                    continue;
-                } else {
-                    return false;
-                }
-            } else {
-                int digito = Character.getNumericValue(cpf.charAt(cpf.length() - (2 - dg)));
-
-                int sub = 11 - resto;
-
-                if (sub == digito) {
-                    continue;
-                } else {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
 }

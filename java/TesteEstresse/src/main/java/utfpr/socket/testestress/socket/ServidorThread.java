@@ -7,7 +7,6 @@ package utfpr.socket.testestress.socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -29,18 +28,11 @@ public class ServidorThread extends Thread {
             entrada = new DataInputStream(conexao.getInputStream());
             saida = new DataOutputStream(conexao.getOutputStream());
 
-            String cpf = entrada.readUTF();
-
-            String resultado = "";
-
-            // valida o cpf
-            if (validaCpf(cpf)) {
-                resultado = "TRUE";
-            } else {
-                resultado = "FALSE";
-            }
+            // Recebimento dos dados
+            String dado = entrada.readUTF();
+            
             //Envio dos dados (resultado)           
-            saida.writeUTF(resultado);
+            saida.writeUTF(dado.toUpperCase());
             // fecha conexão
             conexao.close();
         } catch (Exception e) {

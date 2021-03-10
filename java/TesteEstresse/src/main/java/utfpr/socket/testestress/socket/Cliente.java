@@ -1,9 +1,7 @@
 package utfpr.socket.testestress.socket;
 
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class Cliente {
@@ -16,7 +14,7 @@ public class Cliente {
 
         try {
 
-            String cpf = "12345678910";
+            String palavra = "abcdefghi";
             while (true) {
                 socket = new Socket("127.0.0.1", 50000);
 
@@ -24,7 +22,7 @@ public class Cliente {
                 saida = new DataOutputStream(socket.getOutputStream());
 
                 //O valor é enviado ao servidor
-                saida.writeUTF(cpf);
+                saida.writeUTF(palavra);
 
                 //Recebe-se o resultado do servidor
                 String resultado = entrada.readUTF();
