@@ -23,6 +23,11 @@ public class ServidorThread extends Thread {
     private DataInputStream entrada;
     private DataOutputStream saida;    
 
+    public ServidorThread(){}
+    
+    public ServidorThread(Socket c){
+        this.conexao = c;
+    }
     
     public void run() {
         try {
@@ -48,16 +53,16 @@ public class ServidorThread extends Thread {
         }
     }    
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) {        
+        
         try {
             System.out.println("Servidor abrindo a porta 50000...");
             servidor = new ServerSocket(50000);
             while (true) {
-                System.out.println("Servidor aguardando conexões...");
-                conexao = servidor.accept();
+                System.out.println("Servidor aguardando conexões...");                
+                new ServidorThread(servidor.accept()).start();
                 System.out.println("Cliente se conectou...");
-                new ServidorThread().start();
+                
             }
 
         } catch (Exception e) {
