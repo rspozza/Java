@@ -36,7 +36,8 @@ public class Servidor {
                 endereco = dgPacket.getAddress();
                 int porta = dgPacket.getPort();
                 
-                System.out.println("Porta = "+porta);                
+                System.out.println("IP recebido do cliente: "+endereco.toString());                
+                System.out.println("Porta recebida do cliente: "+porta);                
                                 
                 msg = new byte[128];                
                 msg = nome.getBytes();

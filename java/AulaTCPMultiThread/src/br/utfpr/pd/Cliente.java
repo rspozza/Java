@@ -19,16 +19,17 @@ public class Cliente {
             while (true) {
                 conexao = new Socket("localhost", 2000);
                 //String informacao = JOptionPane.showInputDialog("Digite seu nome");
-                String informacao = "rogerio";
+                String informacao = "nome";
                 saida = new DataOutputStream(conexao.getOutputStream());
                 saida.writeUTF(informacao);
+                Thread.sleep(2);
 
                 entrada = new DataInputStream(conexao.getInputStream());
                 System.out.println("Servidor enviou: " + entrada.readUTF());
                 conexao.close();
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
