@@ -15,26 +15,29 @@ public class Cliente {
     public static DataOutputStream saida;
 
     public static void main(String[] args) {
-        
+
         try {
             // conectar com servidor
-            conexao = new Socket("localhost",4000);
-            
-            // enviar dados ao servidor
-            String dados = JOptionPane.showInputDialog("Digite o seu nome");
-            saida = new DataOutputStream(conexao.getOutputStream());
-            saida.writeUTF(dados);
-            
-            // receber resposta do servidor
-            entrada = new DataInputStream(conexao.getInputStream());
-            String resultado = entrada.readUTF();
-            
-            // exibir dados ao cliente
-            System.out.println("Dados recebidos : "+resultado);
-            
-            // fechar conexao
-            conexao.close();
-            
+            while (true) {
+                conexao = new Socket("localhost", 4000);
+
+                // enviar dados ao servidor
+                //String dados = JOptionPane.showInputDialog("Digite o seu nome");
+                String dados = "rogerio";
+                saida = new DataOutputStream(conexao.getOutputStream());
+                saida.writeUTF(dados);
+
+                // receber resposta do servidor
+                entrada = new DataInputStream(conexao.getInputStream());
+                String resultado = entrada.readUTF();
+
+                // exibir dados ao cliente
+                System.out.println("Dados recebidos : " + resultado);
+
+                // fechar conexao
+                conexao.close();
+            }
+
         } catch (IOException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
