@@ -33,8 +33,6 @@ public class Thread_Servidor extends Thread {
         } catch (IOException ex) {
             Logger.getLogger(Thread_Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
 
 }

@@ -21,7 +21,7 @@ public class Cliente {
             Pessoa pessoa = new Pessoa("Henrique", 30);
             
             saida.writeObject(pessoa);
-            
+            System.out.println("Objeto enviado...");
             socket.close();
             
         } catch(Exception e) {

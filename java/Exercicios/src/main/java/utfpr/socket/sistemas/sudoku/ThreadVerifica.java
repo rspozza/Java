@@ -33,11 +33,9 @@ public class ThreadVerifica implements Runnable {
     }
 
     public boolean verifica() {
-        Arrays.sort(coluna);
-        //this.exibeMatriz(coluna);
+        Arrays.sort(coluna);        
         for (int i = 0; i < coluna.length - 1; i++) {
-            if (coluna[i] == coluna[i + 1]) {
-                //System.out.println("i=" + i);
+            if (coluna[i] == coluna[i + 1]) {                
                 return false;
             }
         }

@@ -17,6 +17,7 @@ public class Servidor {
         try {
             
             server = new ServerSocket(50000);
+            System.out.println("Aguardando requisições...");
             
             socket = server.accept();
             

@@ -1,7 +1,5 @@
 package br.utfpr.pd;
 
-import static br.utfpr.pd.Servidor.conexao;
-import static br.utfpr.pd.Servidor.servidor;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

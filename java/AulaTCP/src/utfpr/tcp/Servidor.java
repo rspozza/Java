@@ -34,7 +34,7 @@ public class Servidor {
             // fechar conexao
             conexao.close();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
