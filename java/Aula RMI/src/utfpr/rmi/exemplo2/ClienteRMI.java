@@ -13,8 +13,7 @@ public class ClienteRMI {
             
             Registry registro = LocateRegistry.getRegistry("localhost", 1099);
             
-            Validadora stub = 
-                    (Validadora) registro.lookup("metodosValidadores");
+            Validadora stub = (Validadora) registro.lookup("metodosValidadores");
             
             System.out.print("O CPF 05342888876 está ");
             if (stub.validarCPF("05342888876")){
