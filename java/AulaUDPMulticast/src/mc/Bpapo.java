@@ -49,7 +49,7 @@ public class Bpapo extends Thread {
     public static void main(String[] args) {
         
         if(args.length != 2) {
-            System.out.println("Parametros estão incorretos!\n java BatePapo <endereco_multicast> <porta>");
+            System.out.println("Parametros estão incorretos!\njava Bpapo <endereco_multicast> <porta>");
             System.exit(1);
         }
         
